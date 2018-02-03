@@ -1,3 +1,3 @@
-public class Armour {
+public class Armour extends GameObject{
 
 }
