@@ -1,6 +1,7 @@
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,9 +21,11 @@ public class ThirdScreen {
 	public BufferedImage monsterImg;
 	public BufferedImage humanImg;
 	public BufferedImage teammateImg;
+	public ImageIcon walkie;
 
 	public static void main(String[] args) {
 		ThirdScreen thirdscreen = new ThirdScreen();
+		
 	}
 
 	ThirdScreen() {
@@ -40,6 +43,9 @@ public class ThirdScreen {
 			monsterImg= ImageIO.read(this.getClass().getResourceAsStream("monster.ico"));
 			humanImg= ImageIO.read(this.getClass().getResourceAsStream("human.jpg"));
 			teammateImg= ImageIO.read(this.getClass().getResourceAsStream("teammate.jpg"));
+			walkie=new ImageIcon(walkieImg);
+			walkietalkie.setIcon(walkie);
+			walkietalkie.setBounds(1500, 0, 100, 100);
 			swordImg= ImageIO.read(this.getClass().getResourceAsStream("sword.jpeg"));
 	}catch(IOException e) {
 		e.printStackTrace();

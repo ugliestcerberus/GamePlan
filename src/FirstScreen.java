@@ -42,14 +42,12 @@ public class FirstScreen extends JComponent implements ActionListener, Runnable 
 		g2.setColor(Color.red);
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		repaint();
 		if(e.getSource()==playbutton) {
 		mainGameWindow = new JFrame("second screen");
 		mainGameWindow= secondscreen.jframe;
 		mainGameWindow.setVisible(true);
-	
 		}
 	}
 }

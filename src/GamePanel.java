@@ -59,15 +59,13 @@ e.printStackTrace();
 	}
 
 	public void paintComponent(Graphics g) {
-	g.drawImage(armourImg, 100, 100, 50, 50, null);
-	g.drawImage(armourImg2, 120, 120, 50, 50, null);
-	g.drawImage(rockImg,200,200, 100,100, null);
-	g.drawImage(glockImg, 56, 56, 70, 70, null);
-	g.drawImage(humanImg, 60, 60, 80, 80, null);
-	g.drawImage(monsterImg, 110, 110, 75, 75,null);
-	g.drawImage(swordImg, 85,85,110,110,null);
-	g.drawImage(teammateImg, 90, 90, 110, 110,null);
-	g.drawImage(walkieImg, 150, 150, 40, 40,null);
-	
+	g.drawImage(armourImg, 150, 250, 50, 50, null);
+	g.drawImage(armourImg2, 300, 350, 50, 50, null);
+	g.drawImage(rockImg,200, 250, 50, 50, null);
+	g.drawImage(glockImg, 75, 125, 50, 50, null);
+	g.drawImage(humanImg, 0, 100, 50, 50, null);
+	g.drawImage(monsterImg, 110, 200, 50, 50, null);
+	g.drawImage(swordImg, 400, 200, 50, 50, null);
+	g.drawImage(teammateImg, 90, 150, 50, 50, null);
 	}
 }
