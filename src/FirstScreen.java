@@ -10,7 +10,7 @@ public class FirstScreen extends JComponent implements ActionListener, Runnable 
 	private JFrame mainGameWindow = new JFrame("NewGame");// Makes window with title "NewGame"
 	private JPanel jpanel = new JPanel();
 	private JButton playbutton = new JButton("Play");
-	public SecondScreen secondscreen= new SecondScreen();
+	public SecondScreen secondscreen = new SecondScreen();
 	private Timer paintTicker = new Timer(20, this); // Ticks every 20 milliseconds (50 times per second); calls on
 														// actionPerformed() when it ticks.
 
@@ -30,9 +30,10 @@ public class FirstScreen extends JComponent implements ActionListener, Runnable 
 		jpanel.add(playbutton);
 		playbutton.addActionListener(this);
 		JOptionPane.showMessageDialog(null,
-"use the a,w,s,d keys to move. A to move left, W to move forward, D to move right, s to move back. "
-+ "Remember, if you lose all your six lives, you die. But you can use many different weapons."
-+ "Also, if you are in trouble, you can communicate with your teamate by pressing the phone button");
+				"use the a,w,s,d keys to move. A to move left, W to move forward, D to move right, s to move back.Press the left "
+						+ "button on the mouse to shoot a bullet"
+						+ "Remember, if you lose all four lives, you die and lose the game. But you can use many different weapons."
+						+ "Also, if you are in trouble, you can communicate with your teamate by pressing the phone button");
 	}
 
 	public void paint(Graphics g) {
@@ -44,10 +45,10 @@ public class FirstScreen extends JComponent implements ActionListener, Runnable 
 
 	public void actionPerformed(ActionEvent e) {
 		repaint();
-		if(e.getSource()==playbutton) {
-		mainGameWindow = new JFrame("second screen");
-		mainGameWindow= secondscreen.jframe;
-		mainGameWindow.setVisible(true);
+		if (e.getSource() == playbutton) {
+			mainGameWindow = new JFrame("second screen");
+			mainGameWindow = secondscreen.jframe;
+			mainGameWindow.setVisible(true);
 		}
 	}
 }

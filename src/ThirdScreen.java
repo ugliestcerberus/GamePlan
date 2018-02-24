@@ -6,12 +6,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+import javax.swing.JTextField;
 public class ThirdScreen {
 	JFrame gamescreen = new JFrame();
 	GamePanel jpanel = new GamePanel();
 	JButton walkietalkie = new JButton();
 	JLabel jlabel = new JLabel();
+	JTextField livescounter= new JTextField();
 	public BufferedImage rockImg;
 	public BufferedImage armourImg;
 	public BufferedImage armourImg2;
@@ -22,12 +23,9 @@ public class ThirdScreen {
 	public BufferedImage humanImg;
 	public BufferedImage teammateImg;
 	public ImageIcon walkie;
-
 	public static void main(String[] args) {
-		ThirdScreen thirdscreen = new ThirdScreen();
-		
+		ThirdScreen thirdscreen = new ThirdScreen();	
 	}
-
 	ThirdScreen() {
 		gamescreen.setVisible(true);
 		gamescreen.add(jpanel);
@@ -49,8 +47,7 @@ public class ThirdScreen {
 			swordImg= ImageIO.read(this.getClass().getResourceAsStream("sword.jpeg"));
 	}catch(IOException e) {
 		e.printStackTrace();
-	}
-		
+	}		
 		jpanel.repaint();
 	}
 }

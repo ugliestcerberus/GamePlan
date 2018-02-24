@@ -42,23 +42,25 @@ public class SecondScreen implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		repaint();
 		if(e.getSource()==easybutton) {
+
 		mainGameWindow= new JFrame("gamescreen");
 		mainGameWindow= thirdscreen.gamescreen;
 		mainGameWindow.setVisible(true);	
 		}
-		if(e.getSource()==mediumbutton) {
+		else if(e.getSource()==mediumbutton) {
 		mainGameWindow= new JFrame("gamescreen");
 		mainGameWindow= thirdscreen.gamescreen;
 		mainGameWindow.setVisible(true);
-		if(e.getSource()==hardbutton) {
+		}
+		else if(e.getSource()==hardbutton) {
+			System.out.println(e.getSource());
+
 		mainGameWindow= new JFrame("gamescreen");
 		mainGameWindow= thirdscreen.gamescreen;
 		mainGameWindow.setVisible(true);	
 		}
 		}
-		
-	}
-
+	
 	private void repaint() {
 		
 	}
