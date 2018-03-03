@@ -8,11 +8,11 @@ public Rocks(int x, int y, int width, int height, boolean isAlive) {
 		this.width=width;
 		this.height=height;
 	}
-Rocks rocks= new Rocks(400,400,100,100,true);
-Rocks rocks1= new Rocks(450,300,50,50,true);
-Rocks rocks2= new Rocks(450,100,75,75,true);
+
 	void draw(Graphics g) {
-		g.drawImage(GamePanel.rockImg, 100, 100,50,50, null);
+		g.drawImage(GamePanel.rockImg, x,y,width,height, null);
+
+		
 	}
 	void update() {
 		super.update();

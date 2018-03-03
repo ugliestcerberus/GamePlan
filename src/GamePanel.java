@@ -19,8 +19,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public BufferedImage walkieImg;
 	public BufferedImage glockImg;
 	public BufferedImage swordImg;
-	public BufferedImage monsterImg;
-	public BufferedImage humanImg;
+	Human human= new Human(500,1000,75,75);
+	Rocks rocks1= new Rocks(100,100,50,50,true);
+	Rocks rocks2= new Rocks(200,250,75,75,true);
+	Rocks rocks3= new Rocks(500,200, 75, 75,true);
+	Rocks rocks4= new Rocks(700, 250, 75, 75,true);
+	Rocks rocks5= new Rocks(600, 450, 75, 75,true);
+	Rocks rocks6= new Rocks(900, 600, 75, 75,true);
+	Rocks rocks7= new Rocks(800, 550, 75, 75, true);
+	Rocks rocks8= new Rocks(100, 100, 75, 75,true);
+	
+	public static BufferedImage monsterImg;
+	public static BufferedImage humanImg;
 	public BufferedImage teammateImg;
 	
 GamePanel() {
@@ -29,11 +39,11 @@ try {
 	armourImg2=ImageIO.read(this.getClass().getResourceAsStream("secondarmourpiece.png"));
 	walkieImg=ImageIO.read(this.getClass().getResourceAsStream("walkietalkie.jpeg"));
 	rockImg= ImageIO.read(this.getClass().getResourceAsStream("rock.png"));
-	glockImg=ImageIO.read(this.getClass().getResourceAsStream("glock.jpeg"));
-	monsterImg= ImageIO.read(this.getClass().getResourceAsStream("monster.ico"));
+	glockImg=ImageIO.read(this.getClass().getResourceAsStream("glocks.png"));
+	monsterImg= ImageIO.read(this.getClass().getResourceAsStream("enemies.jpg"));
 	humanImg= ImageIO.read(this.getClass().getResourceAsStream("human.jpg"));
 	teammateImg= ImageIO.read(this.getClass().getResourceAsStream("teammate.jpg"));
-	swordImg= ImageIO.read(this.getClass().getResourceAsStream("sword.jpeg"));
+	swordImg= ImageIO.read(this.getClass().getResourceAsStream("BlackSword.png"));
 }catch(IOException e) {
 e.printStackTrace();
 }	
@@ -45,7 +55,7 @@ e.printStackTrace();
 
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_A) {
-			
+			human.y += 50;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_W) {
 			
@@ -69,19 +79,21 @@ e.printStackTrace();
 	}
 
 	public void paintComponent(Graphics g) {
-	g.drawImage(rockImg,200, 250, 75, 75, null);
-	g.drawImage(rockImg, 500,200, 75, 75, null);
-	g.drawImage(rockImg, 700, 250, 75, 75, null);
-	g.drawImage(rockImg, 600, 450, 75, 75, null);
-	g.drawImage(rockImg, 900, 600, 75, 75, null);
-	g.drawImage(rockImg, 800, 550, 75, 75, null);
-	g.drawImage(rockImg, 100, 100, 75, 75, null);
 	g.drawImage(humanImg, 0, 800, 100, 100, null);
 	g.drawImage(armourImg, 0, 800, 85, 85, null);
 	g.drawImage(glockImg, 0, 800, 75, 75, null);
 	g.drawImage(monsterImg, 110, 200, 50, 50, null);
-	g.drawImage(swordImg, 400, 200, 50, 50, null);
 	g.drawImage(teammateImg, 300, 350, 100, 100, null);
 	g.drawImage(armourImg2, 300, 350, 85, 85, null);
+	g.drawImage(swordImg, 300, 350, 110, 110, null);	
+	rocks1.draw(g);
+	rocks2.draw(g);
+	rocks3.draw(g);
+	rocks4.draw(g);
+	rocks5.draw(g);
+	rocks6.draw(g);
+	rocks7.draw(g);
+	rocks8.draw(g);
+	human.draw(g);
 	}
 }
