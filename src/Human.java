@@ -11,4 +11,8 @@ this.height=height;
 void draw(Graphics g) {
 g.drawImage(GamePanel.humanImg, x, y, width, height, null);
 }
+public void addBullet(Bullet bullet) {
+	
+	
+}
 }

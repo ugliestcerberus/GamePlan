@@ -1,5 +1,22 @@
-public class Teammate {
-public static void main(String[]args) {
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class Teammate extends GameObject {
+	int speed;
 	
+	Teammate(int x, int y, int width, int height){
+		super(x,y,width,height,true);
+		this.x=x;
+		this.y=y;
+		this.width=width;
+		this.height=height;
+	}
+	void update() {
+		super.update();
+	}
+	void draw(Graphics g) {
+		g.setColor(Color.BLUE);
+		g.drawImage(GamePanel.teammateImg, x, y, width, height, null);
+	}
 }
-}
+

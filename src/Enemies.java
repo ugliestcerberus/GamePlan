@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.imageio.ImageIO;
@@ -10,12 +11,14 @@ public class Enemies extends GameObject{
 	}
 	void update() {
 	super.update();
-	y+=10;
 	}
 	
 	void draw(Graphics g) {
 		g.drawImage(GamePanel.monsterImg,x,y,width,height,null);
-		
+		g.setColor(Color.BLUE);
 	}
 	
+	public void add(ObjectManager manager) {
+		
+	}
 }
