@@ -22,6 +22,7 @@ public class ThirdScreen {
 	public BufferedImage monsterImg;
 	public BufferedImage humanImg;
 	public BufferedImage teammateImg;
+	static int width;
 	public ImageIcon walkie;
 	public static void main(String[] args) {
 		ThirdScreen thirdscreen = new ThirdScreen();	
@@ -30,6 +31,7 @@ public class ThirdScreen {
 		gamescreen.setVisible(true);
 		gamescreen.add(jpanel);
 		jpanel.add(walkietalkie);
+		jpanel.addKeyListener(jpanel);
 		gamescreen.setSize(1000, 1000);
 		jlabel.setText("Lives");
 		try {
@@ -48,6 +50,8 @@ public class ThirdScreen {
 	}catch(IOException e) {
 		e.printStackTrace();
 	}		
+		
+		
 		jpanel.repaint();
 	}
 }

@@ -5,11 +5,12 @@ public class Bullet extends GameObject{
 	int speed=10;
 	
 	public Bullet(int x, int y, int width, int height) {
-		super(x, y, width, height, isAlive);
+		super(x, y, width, height);
 		this.x=x;
 		this.y=y;
 		this.width=width;
 		this.height=height;
+		
 
 }
 void update() {

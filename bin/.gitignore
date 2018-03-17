@@ -1,5 +1,6 @@
 /Armour.class
 /BlackSword.png
+/Bullet.class
 /Enemies.class
 /FirstScreen.class
 /GameObject.class
@@ -12,6 +13,7 @@
 /ThirdScreen.class
 /WalkieTalkie.class
 /Weapon.class
+/bullet.png
 /enemies.jpg
 /firstarmourpiece.jpg
 /firstarmourpiece.png
@@ -25,5 +27,4 @@
 /sword.png
 /teammate.jpg
 /walkietalkie.jpeg
-/Bullet.class
-/bullet.png
+/Monster.class

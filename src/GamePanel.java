@@ -19,7 +19,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public BufferedImage glockImg;
 	public BufferedImage swordImg;
 	public static BufferedImage bulletImg;
-	Human human = new Human(500, 1000, 75, 75);
+	Human human = new Human(0, 800, 75, 75);
+	Armour armour= new Armour(0, 800, 85, 85,true);
+	Weapon weapon= new Weapon(0, 800, 75, 75,true);
 	Teammate teammate = new Teammate(300, 300, 50, 50);
 	Rocks rocks1 = new Rocks(100, 100, 50, 50, true);
 	Rocks rocks2 = new Rocks(200, 250, 75, 75, true);
@@ -58,6 +60,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_A) {
 			human.x += 50;
+			weapon.x+= 50;
+			armour.x+= 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_W) {
 			human.y += 50;
@@ -84,7 +88,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			human.addBullet(new Bullet(0, 800, 50, 50));
 		}
 		if (e.getKeyCode() == KeyEvent.VK_1) {
-
+			
 		}
 		if(e.getKeyCode() == KeyEvent.VK_2) {
 			
@@ -113,9 +117,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void paintComponent(Graphics g) {
-		g.drawImage(humanImg, 0, 800, 100, 100, null);
-		g.drawImage(armourImg, 0, 800, 85, 85, null);
-		g.drawImage(glockImg, 0, 800, 75, 75, null);
+		g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
+		g.drawImage(armourImg, armour.x, armour.y, armour.width, armour.width, null);
+		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
 		g.drawImage(monsterImg, 110, 200, 50, 50, null);
 		g.drawImage(teammateImg, 300, 350, 100, 100, null);
 		g.drawImage(armourImg2, 300, 350, 85, 85, null);
