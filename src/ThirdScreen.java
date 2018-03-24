@@ -31,8 +31,8 @@ public class ThirdScreen {
 		gamescreen.setVisible(true);
 		gamescreen.add(jpanel);
 		jpanel.add(walkietalkie);
-		//jpanel.addKeyListener(jpanel);
-		gamescreen.addKeyListener(jpanel);
+		jpanel.addKeyListener(jpanel);
+	///	gamescreen.addKeyListener(jpanel);
 		gamescreen.setSize(1000, 1000);
 		jlabel.setText("Lives");
 		try {

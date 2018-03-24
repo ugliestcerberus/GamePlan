@@ -13,6 +13,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer timer = new Timer(1000 / 60, this);
 
 	public static BufferedImage rockImg;
+	final int MENU_STATE= 0;
+	final int GAME_STATE= 1;
+	final int END_STATE= 2;
+	int currentState= MENU_STATE;
 	public BufferedImage armourImg;
 	public BufferedImage armourImg2;
 	public BufferedImage walkieImg;
