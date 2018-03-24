@@ -6,10 +6,11 @@ public class GameObject {
 	int y;
 	int width;
 	int height;
-	boolean isAlive = true;
-	public Rectangle collisionbox = new Rectangle(x, y, width, height);
+	static boolean isAlive = true;
+	public Rectangle collisionbox = new Rectangle();
 
-	public GameObject(int x, int y, int width, int height) {
+
+	public GameObject(int x2, int y2, int width2, int height2, boolean isAlive) {
 		this.x = x;
 		this.y = y;
 		this.width = width;

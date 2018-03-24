@@ -18,7 +18,7 @@ public class ThirdScreen {
 	public BufferedImage armourImg2;
 	public BufferedImage walkieImg;
 	public BufferedImage glockImg;
-	public BufferedImage swordImg;
+	public BufferedImage weapon2Img;
 	public BufferedImage monsterImg;
 	public BufferedImage humanImg;
 	public BufferedImage teammateImg;
@@ -31,7 +31,8 @@ public class ThirdScreen {
 		gamescreen.setVisible(true);
 		gamescreen.add(jpanel);
 		jpanel.add(walkietalkie);
-		jpanel.addKeyListener(jpanel);
+		//jpanel.addKeyListener(jpanel);
+		gamescreen.addKeyListener(jpanel);
 		gamescreen.setSize(1000, 1000);
 		jlabel.setText("Lives");
 		try {
@@ -43,10 +44,11 @@ public class ThirdScreen {
 			monsterImg= ImageIO.read(this.getClass().getResourceAsStream("enemies.jpg"));
 			humanImg= ImageIO.read(this.getClass().getResourceAsStream("human.jpg"));
 			teammateImg= ImageIO.read(this.getClass().getResourceAsStream("teammate.jpg"));
-			swordImg= ImageIO.read(this.getClass().getResourceAsStream("BlackSword.png"));
+			weapon2Img= ImageIO.read(this.getClass().getResourceAsStream("second handgun.jpg"));
 			walkie=new ImageIcon(walkieImg);
 			walkietalkie.setIcon(walkie);
 			walkietalkie.setBounds(1500, 0, 100, 100);
+			
 	}catch(IOException e) {
 		e.printStackTrace();
 	}		

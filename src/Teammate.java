@@ -4,7 +4,7 @@ import java.awt.Graphics;
 public class Teammate extends GameObject {
 	int speed;
 	
-	Teammate(int x, int y, int width, int height){
+	Teammate(int x, int y, int width, int height,boolean isAlive){
 		super(x,y,width,height,true);
 		this.x=x;
 		this.y=y;

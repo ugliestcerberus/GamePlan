@@ -4,12 +4,13 @@ import java.awt.Graphics;
 public class Bullet extends GameObject{
 	int speed=10;
 	
-	public Bullet(int x, int y, int width, int height) {
-		super(x, y, width, height);
+	public Bullet(int x, int y, int width, int height, boolean isAlive) {
+		super(x, y, width, height, isAlive);
 		this.x=x;
 		this.y=y;
 		this.width=width;
 		this.height=height;
+		this.isAlive= isAlive;
 		
 
 }

@@ -19,10 +19,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public BufferedImage glockImg;
 	public BufferedImage swordImg;
 	public static BufferedImage bulletImg;
+	public BufferedImage weapon2Img;
 	Human human = new Human(0, 800, 75, 75);
-	Armour armour= new Armour(0, 800, 85, 85,true);
-	Weapon weapon= new Weapon(0, 800, 75, 75,true);
-	Teammate teammate = new Teammate(300, 300, 50, 50);
+	ObjectManager manager = new ObjectManager(human);
+	Armour armour = new Armour(0, 800, 85, 85, true);
+	Weapon weapon = new Weapon(0, 800, 75, 75, true);
+	Teammate teammate = new Teammate(300, 300, 50, 50, true);
+	Weapon2 weapon2 = new Weapon2(300, 300, 50, 50, true);
 	Rocks rocks1 = new Rocks(100, 100, 50, 50, true);
 	Rocks rocks2 = new Rocks(200, 250, 75, 75, true);
 	Rocks rocks3 = new Rocks(500, 200, 75, 75, true);
@@ -47,7 +50,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			humanImg = ImageIO.read(this.getClass().getResourceAsStream("human.jpg"));
 			teammateImg = ImageIO.read(this.getClass().getResourceAsStream("teammate.jpg"));
 			bulletImg = ImageIO.read(this.getClass().getResourceAsStream("bullet.png"));
-			swordImg = ImageIO.read(this.getClass().getResourceAsStream("BlackSword.png"));
+			weapon2Img = ImageIO.read(this.getClass().getResourceAsStream("second handgun.jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -58,52 +61,83 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
+		System.out.println("hi");
 		if (e.getKeyCode() == KeyEvent.VK_A) {
 			human.x += 50;
-			weapon.x+= 50;
-			armour.x+= 50;
+			weapon.x += 50;
+			armour.x += 50;
+
 		}
 		if (e.getKeyCode() == KeyEvent.VK_W) {
 			human.y += 50;
+			// weapon.y +=50;
+		
 		}
 		if (e.getKeyCode() == KeyEvent.VK_S) {
 			human.y -= 50;
+			weapon.y -= 50;
+			armour.y -= 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_D) {
 			human.x -= 50;
+			weapon.x -= 50;
+			armour.x -= 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			teammate.x += 50;
+			weapon2.x += 50;
+			armour.x += 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			teammate.y += 50;
+			weapon2.y += 50;
+			armour.y += 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			teammate.x += 50;
+			weapon2.x += 50;
+			armour.x += 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			teammate.x -= 50;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			human.addBullet(new Bullet(0, 800, 50, 50));
-		}
-		if (e.getKeyCode() == KeyEvent.VK_1) {
-			
-		}
-		if(e.getKeyCode() == KeyEvent.VK_2) {
-			
-		}
-		if(e.getKeyCode() == KeyEvent.VK_3) {
-			
-		}
-		if(e.getKeyCode() == KeyEvent.VK_4) {
-			
-		}
-		if(e.getKeyCode() == KeyEvent.VK_5) {
-			
+			weapon2.x -= 50;
+			armour.x -= 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			human.addBullet(new Bullet(0, 800, 50, 50, true));
+		}
+		if (e.getKeyCode() == KeyEvent.VK_1) {
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_2) {
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_3) {
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_4) {
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_5) {
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_NUMPAD1) {
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_NUMPAD2) {
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_NUMPAD3) {
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_NUMPAD4) {
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_NUMPAD5) {
+
 		}
 
 	}
@@ -117,7 +151,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void paintComponent(Graphics g) {
-		g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
+		// g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
 		g.drawImage(armourImg, armour.x, armour.y, armour.width, armour.width, null);
 		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
 		g.drawImage(monsterImg, 110, 200, 50, 50, null);
@@ -135,4 +169,5 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		human.draw(g);
 		System.out.println("lk");
 	}
+
 }

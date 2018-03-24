@@ -13,6 +13,8 @@ public class ObjectManager {
 	ArrayList<Bullet> bullet = new ArrayList<Bullet>();
 	Teammate teammate;
 	Human human;
+	Armour armour;
+	
 
 	void purgeObjects() {
 		for (int i = 0; i < enemies.size(); i++) {
@@ -63,10 +65,14 @@ public class ObjectManager {
 
 	void checkCollision() {
 		for (Enemies e : enemies) {
-			if (teammate.collisionbox.intersects(e.collisionbox)) {
-				teammate.isAlive = false;
-			} else if (human.collisionbox.intersects(e.collisionbox)) {
-				human.isAlive = false;
+			if (armour.collisionbox.intersects(e.collisionbox)) {
+				Armour.isAlive = false;
+			} else if (armour.collisionbox.intersects(e.collisionbox)) {
+				Armour.isAlive = false;
+			} else if(human.collisionbox.intersects(e.collisionbox)){
+				human.isAlive= false;
+			} else if(teammmate.collisionbox.intersects(e.collisionbox)){
+				teammate.isAlive= false;
 			}
 		}
 		for (Bullet b : bullet) {
