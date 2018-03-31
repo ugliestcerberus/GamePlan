@@ -6,4 +6,8 @@ public class WalkieTalkie {
 	WalkieTalkie() {
 
 	}
+
+	public void press(String command) {
+		
+	}
 }

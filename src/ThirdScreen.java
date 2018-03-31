@@ -24,15 +24,17 @@ public class ThirdScreen {
 	public BufferedImage teammateImg;
 	static int width;
 	public ImageIcon walkie;
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		ThirdScreen thirdscreen = new ThirdScreen();	
 	}
 	ThirdScreen() {
 		gamescreen.setVisible(true);
 		gamescreen.add(jpanel);
 		jpanel.add(walkietalkie);
+		walkietalkie.addActionListener(jpanel);
 		jpanel.addKeyListener(jpanel);
-	///	gamescreen.addKeyListener(jpanel);
+		jpanel.requestFocusInWindow();
+		//gamescreen.addKeyListener(jpanel);
 		gamescreen.setSize(1000, 1000);
 		jlabel.setText("Lives");
 		try {

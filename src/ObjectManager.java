@@ -71,14 +71,15 @@ public class ObjectManager {
 				Armour.isAlive = false;
 			} else if(human.collisionbox.intersects(e.collisionbox)){
 				human.isAlive= false;
-			} else if(teammmate.collisionbox.intersects(e.collisionbox)){
-				teammate.isAlive= false;
-			}
+			} 
+			//else if(teammmate.collisionbox.intersects(e.collisionbox)){
+			//	teammate.isAlive= false;
+			//}
 		}
 		for (Bullet b : bullet) {
-			if (enemies.collisionbox.intersects(b.collisionbox)) {
+			//if (enemies.collisionbox.intersects(b.collisionbox)) {
 
-			}
+			//}
 		}
 	}
 

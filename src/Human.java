@@ -12,6 +12,7 @@ public class Human extends GameObject {
 
 	void draw(Graphics g) {
 		g.drawImage(GamePanel.humanImg, x, y, width, height, null);
+		System.out.println("drawing human at y of " + y);
 		//g.drawRect(x,y,width,height);
 	}
 
