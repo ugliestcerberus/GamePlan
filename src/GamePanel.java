@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -17,7 +18,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int END_STATE= 2;
 	int currentState= MENU_STATE;
 	public BufferedImage armourImg;
-	public BufferedImage armourImg2;
+	public static BufferedImage armourImg2;
 	public BufferedImage walkieImg;
 	public BufferedImage glockImg;
 	public BufferedImage swordImg;
@@ -26,10 +27,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Human human = new Human(0, 800, 75, 75);
 	ObjectManager manager = new ObjectManager(human);
 	Armour armour = new Armour(0, 800, 85, 85, true);
+	Armour2 armour2= new Armour2(0,500,75,75,true);
 	Weapon weapon = new Weapon(0, 800, 75, 75, true);
 	Teammate teammate = new Teammate(300, 300, 50, 50, true);
 	Weapon2 weapon2 = new Weapon2(300, 300, 50, 50, true);
-	WalkieTalkie walkietalkie= new WalkieTalkie();
 	Rocks rocks1 = new Rocks(100, 100, 50, 50, true);
 	Rocks rocks2 = new Rocks(200, 250, 75, 75, true);
 	Rocks rocks3 = new Rocks(500, 200, 75, 75, true);
@@ -66,46 +67,46 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		System.out.println("hi");
-		if (e.getKeyChar() == KeyEvent.VK_A) {
-			human.x += 50;
-			weapon.x += 50;
-			armour.x += 50;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_W) {
-			human.y += 50;
-			weapon.y +=50;
 		
-		}
-		if (e.getKeyCode() == KeyEvent.VK_S) {
-			human.y -= 50;
-			weapon.y -= 50;
-			armour.y -= 50;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_D) {
+		if (e.getKeyCode() == KeyEvent.VK_A) {
 			human.x -= 50;
 			weapon.x -= 50;
 			armour.x -= 50;
 		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			teammate.x += 50;
-			weapon2.x += 50;
+		if (e.getKeyCode() == KeyEvent.VK_W) {
+			human.y -= 50;
+			weapon.y -=50;
+			armour.y -=50;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_S) {
+			human.y += 50;
+			weapon.y += 50;
+			armour.y += 50;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_D) {
+			human.x += 50;
+			weapon.x += 50;
 			armour.x += 50;
 		}
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			teammate.y += 50;
 			weapon2.y += 50;
 			armour.y += 50;
 		}
-		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			teammate.x += 50;
-			weapon2.x += 50;
-			armour.x += 50;
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			teammate.y -= 50;
+			weapon2.y -= 50;
+			armour.y -= 50;
 		}
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			teammate.x -= 50;
 			weapon2.x -= 50;
 			armour.x -= 50;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			teammate.x += 50;
+			weapon2.x += 50;
+			armour.x += 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
@@ -114,49 +115,44 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			human.addBullet(new Bullet(0, 800, 50, 50, true));
 		}
 		if (e.getKeyCode() == KeyEvent.VK_1) {
-			walkietalkie.press("Help me out, teammate!");
+			JOptionPane.showMessageDialog(null,"Help me out, teammate!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_2) {
-			walkietalkie.press("Get out of the area, Teammate!");
+			JOptionPane.showMessageDialog(null,"Get out of the area, Teammate!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_3) {
-			walkietalkie.press("I'm coming to help, Teammate");
+			JOptionPane.showMessageDialog(null,"I'm coming to help, Teammate");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_4) {
-			walkietalkie.press("Follow me,Teammate");
+			JOptionPane.showMessageDialog(null,"Follow me,Teammate");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_5) {
-			walkietalkie.press("Oh yeah teammate, we got this");
+			JOptionPane.showMessageDialog(null,"Oh yeah teammate, we got this");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_NUMPAD1) {
-			walkietalkie.press("Help me out, Human!");
+			JOptionPane.showMessageDialog(null,"Help me out, Human!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_NUMPAD2) {
-			walkietalkie.press("Get out of the area, Human!");
+			JOptionPane.showMessageDialog(null,"Get out of the area, Human!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_NUMPAD3) {
-			walkietalkie.press("I'm coming to help, Teammate");
+			JOptionPane.showMessageDialog(null,"I'm coming to help, Teammate");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_NUMPAD4) {
-			walkietalkie.press("Follow me, Teammate");
+			JOptionPane.showMessageDialog(null,"Follow me, Teammate");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_NUMPAD5) {
-			walkietalkie.press("Oh yeah teammate, we got this");
+			JOptionPane.showMessageDialog(null,"Oh yeah teammate, we got this");
 		}
+		
 		repaint();
-
+		
 	}
 
 	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_1) {
-			walkietalkie.press("Help me out, teammate!");
-			if (e.getKeyChar() == KeyEvent.VK_A) {
-				human.x += 50;
-				weapon.x += 50;
-				armour.x += 50;
-			}
-		}
 	}
+		
+	
 
 	public void actionPerformed(ActionEvent e) {
 		this.requestFocusInWindow();
@@ -167,9 +163,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void paintComponent(Graphics g) {
 		// g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
 		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
+		g.drawImage(teammateImg, teammate.x, teammate.y, teammate.width, teammate.height, null);
 		g.drawImage(monsterImg, 110, 200, 50, 50, null);
-		g.drawImage(teammateImg, 300, 350, 100, 100, null);
-		g.drawImage(armourImg2, 300, 350, 85, 85, null);
+		g.drawImage(armourImg2, armour.x, armour.y, armour.width, armour.height, null);
+		g.drawImage(armourImg, armour.x, armour.y, armour.width, armour.height, null);
 		rocks1.draw(g);
 		rocks2.draw(g);
 		rocks3.draw(g);

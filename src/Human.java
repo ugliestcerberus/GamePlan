@@ -1,5 +1,7 @@
 import java.awt.Graphics;
 
+import javax.swing.JOptionPane;
+
 public class Human extends GameObject {
 	int speed;
 	Human(int x, int y, int width, int height) {
@@ -11,16 +13,22 @@ public class Human extends GameObject {
 	}
 
 	void draw(Graphics g) {
-		g.drawImage(GamePanel.humanImg, x, y, width, height, null);
+		g.drawImage(GamePanel.humanImg, x, y, 50, 50, null);
 		System.out.println("drawing human at y of " + y);
-		//g.drawRect(x,y,width,height);
 	}
 
 	public void addBullet(Bullet bullet) {
 
 	}
-
+	
+	
+	
 	void update() {
 		super.update();
 	}
 }
+
+	
+	
+
+	

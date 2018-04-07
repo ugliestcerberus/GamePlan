@@ -15,8 +15,8 @@ public class Teammate extends GameObject {
 		super.update();
 	}
 	void draw(Graphics g) {
-		g.setColor(Color.BLUE);
 		g.drawImage(GamePanel.teammateImg, x, y, width, height, null);
+		System.out.println("drawing teammate at" + y);
 	}
 }
 
