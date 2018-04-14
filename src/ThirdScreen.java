@@ -35,7 +35,7 @@ public class ThirdScreen {
 		jpanel.addKeyListener(jpanel);
 		jpanel.requestFocusInWindow();
 		//gamescreen.addKeyListener(jpanel);
-		gamescreen.setSize(1000, 1000);
+		gamescreen.setSize(900, 900);
 		jlabel.setText("Lives");
 		try {
 			armourImg= ImageIO.read(this.getClass().getResourceAsStream("firstarmourpiece.jpg"));

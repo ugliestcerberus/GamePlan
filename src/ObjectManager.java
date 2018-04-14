@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,9 +15,20 @@ public class ObjectManager {
 	Teammate teammate;
 	Human human;
 	Armour armour;
+	Armour2 armour2;
+
+
 	
 
-	void purgeObjects() {
+	void addBullet(Bullet b) {
+		bullet.add(b);
+	}
+
+	void addEnemy(Enemies e) {
+		enemies.add(e);
+	}
+	
+void purgeObjects() {
 		for (int i = 0; i < enemies.size(); i++) {
 			if (enemies.get(i).isAlive == false) {
 				enemies.remove(i);
@@ -29,14 +41,6 @@ public class ObjectManager {
 		}
 	}
 
-	void addBullet(Bullet b) {
-		bullet.add(b);
-	}
-
-	void addEnemy(Enemies e) {
-		enemies.add(e);
-	}
-
 	ObjectManager(Teammate teammate) {
 		this.teammate = teammate;
 	}
@@ -45,6 +49,16 @@ public class ObjectManager {
 		this.human = human;
 	}
 
+	void draw(Graphics g) {
+		teammate.draw(g);
+		human.draw(g);
+		for (Bullet b : bullet) {
+			b.draw(g);
+		}
+		for (Enemies e : enemies) {
+			e.draw(g);
+		}
+	}
 	public void ManageEnemies() {
 		if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
 			addEnemy(new Enemies(new Random().nextInt(ThirdScreen.width),0,50,50,true));
@@ -67,14 +81,14 @@ public class ObjectManager {
 		for (Enemies e : enemies) {
 			if (armour.collisionbox.intersects(e.collisionbox)) {
 				Armour.isAlive = false;
-			} else if (armour.collisionbox.intersects(e.collisionbox)) {
-				Armour.isAlive = false;
+			} else if (armour2.collisionbox.intersects(e.collisionbox)) {
+				Armour2.isAlive = false;
 			} else if(human.collisionbox.intersects(e.collisionbox)){
 				human.isAlive= false;
 			} 
-			//else if(teammmate.collisionbox.intersects(e.collisionbox)){
-			//	teammate.isAlive= false;
-			//}
+			else if(teammate.collisionbox.intersects(e.collisionbox)){
+				teammate.isAlive= false;
+			}
 		}
 		for (Bullet b : bullet) {
 			//if (enemies.collisionbox.intersects(b.collisionbox)) {

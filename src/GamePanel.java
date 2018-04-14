@@ -17,7 +17,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME_STATE= 1;
 	final int END_STATE= 2;
 	int currentState= MENU_STATE;
-	public BufferedImage armourImg;
+	public static BufferedImage armourImg;
 	public static BufferedImage armourImg2;
 	public BufferedImage walkieImg;
 	public BufferedImage glockImg;
@@ -25,20 +25,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage bulletImg;
 	public BufferedImage weapon2Img;
 	Human human = new Human(0, 800, 75, 75);
-	ObjectManager manager = new ObjectManager(human);
 	Armour armour = new Armour(0, 800, 85, 85, true);
-	Armour2 armour2= new Armour2(0,500,75,75,true);
+	Teammate teammate = new Teammate(300, 300, 75, 75, true);
+	Armour2 armour2= new Armour2(300, 300, 85, 85, true);
 	Weapon weapon = new Weapon(0, 800, 75, 75, true);
-	Teammate teammate = new Teammate(300, 300, 50, 50, true);
 	Weapon2 weapon2 = new Weapon2(300, 300, 50, 50, true);
+	ObjectManager manager = new ObjectManager(human);
 	Rocks rocks1 = new Rocks(100, 100, 50, 50, true);
-	Rocks rocks2 = new Rocks(200, 250, 75, 75, true);
+	Rocks rocks2 = new Rocks(1000, 250, 75, 75, true);
 	Rocks rocks3 = new Rocks(500, 200, 75, 75, true);
 	Rocks rocks4 = new Rocks(700, 250, 75, 75, true);
 	Rocks rocks5 = new Rocks(600, 450, 75, 75, true);
 	Rocks rocks6 = new Rocks(900, 600, 75, 75, true);
 	Rocks rocks7 = new Rocks(800, 550, 75, 75, true);
-	Rocks rocks8 = new Rocks(100, 100, 75, 75, true);
+	Rocks rocks8= new Rocks(0,1000,75,75,true);
 
 	public static BufferedImage monsterImg;
 	public static BufferedImage humanImg;
@@ -56,7 +56,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			humanImg = ImageIO.read(this.getClass().getResourceAsStream("human.jpg"));
 			teammateImg = ImageIO.read(this.getClass().getResourceAsStream("teammate.jpg"));
 			bulletImg = ImageIO.read(this.getClass().getResourceAsStream("bullet.png"));
-			weapon2Img = ImageIO.read(this.getClass().getResourceAsStream("second handgun.jpg"));
+			weapon2Img = ImageIO.read(this.getClass().getResourceAsStream("glock.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -91,25 +91,28 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			teammate.y += 50;
 			weapon2.y += 50;
-			armour.y += 50;
+			armour2.y += 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			teammate.y -= 50;
 			weapon2.y -= 50;
-			armour.y -= 50;
+			armour2.y -= 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			teammate.x -= 50;
 			weapon2.x -= 50;
-			armour.x -= 50;
+			armour2.x -= 50;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			teammate.x += 50;
 			weapon2.x += 50;
-			armour.x += 50;
+			armour2.x += 50;
+		}
+		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
+			manager.addBullet(new Bullet(human.x, human.y, 50, 50, true));
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
+			manager.addBullet(new Bullet(teammate.x, teammate.y, 50,50, true));
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			human.addBullet(new Bullet(0, 800, 50, 50, true));
@@ -156,17 +159,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void actionPerformed(ActionEvent e) {
 		this.requestFocusInWindow();
-		
-	
 	}
 
 	public void paintComponent(Graphics g) {
-		// g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
-		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
-		g.drawImage(teammateImg, teammate.x, teammate.y, teammate.width, teammate.height, null);
-		g.drawImage(monsterImg, 110, 200, 50, 50, null);
-		g.drawImage(armourImg2, armour.x, armour.y, armour.width, armour.height, null);
+		//g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
 		g.drawImage(armourImg, armour.x, armour.y, armour.width, armour.height, null);
+		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
+		g.drawImage(monsterImg, 110, 200, 50, 50, null);
+		g.drawImage(teammateImg, teammate.x, teammate.y, teammate.width, teammate.height, null);
+		g.drawImage(armourImg2, armour2.x, armour2.y, armour2.width, armour2.height, null);
+		g.drawImage(weapon2Img, weapon2.x, weapon2.y, weapon2.width, weapon2.height, null);
 		rocks1.draw(g);
 		rocks2.draw(g);
 		rocks3.draw(g);
@@ -176,6 +178,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		rocks7.draw(g);
 		rocks8.draw(g);
 		human.draw(g);
+	
 	}
 
 }
