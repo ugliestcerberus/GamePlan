@@ -12,6 +12,7 @@ public class ThirdScreen {
 	GamePanel jpanel = new GamePanel();
 	JButton walkietalkie = new JButton();
 	JLabel jlabel = new JLabel();
+	JTextField scoreboard= new JTextField();
 	JTextField livescounter= new JTextField();
 	public BufferedImage rockImg;
 	public BufferedImage armourImg;
@@ -33,6 +34,8 @@ public class ThirdScreen {
 		jpanel.add(walkietalkie);
 		walkietalkie.addActionListener(jpanel);
 		jpanel.addKeyListener(jpanel);
+		jpanel.add(scoreboard);
+		jpanel.add(livescounter);
 		jpanel.requestFocusInWindow();
 		//gamescreen.addKeyListener(jpanel);
 		gamescreen.setSize(900, 900);
@@ -46,7 +49,7 @@ public class ThirdScreen {
 			monsterImg= ImageIO.read(this.getClass().getResourceAsStream("enemies.jpg"));
 			humanImg= ImageIO.read(this.getClass().getResourceAsStream("human.jpg"));
 			teammateImg= ImageIO.read(this.getClass().getResourceAsStream("teammate.jpg"));
-			weapon2Img= ImageIO.read(this.getClass().getResourceAsStream("second handgun.jpg"));
+			weapon2Img= ImageIO.read(this.getClass().getResourceAsStream("glock.png"));
 			walkie=new ImageIcon(walkieImg);
 			walkietalkie.setIcon(walkie);
 			walkietalkie.setBounds(1500, 0, 100, 100);

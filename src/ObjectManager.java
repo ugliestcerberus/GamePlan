@@ -77,6 +77,7 @@ void purgeObjects() {
 		}
 	}
 
+
 	void checkCollision() {
 		for (Enemies e : enemies) {
 			if (armour.collisionbox.intersects(e.collisionbox)) {
@@ -100,4 +101,14 @@ void purgeObjects() {
 	public void reset() {
 		
 	}
+
+	public int getScore1() {
+		return score;
+	}
+
+	public void manageEnemies() {
+		
+		
+	}
+
 }

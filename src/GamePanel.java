@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,12 +26,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public BufferedImage swordImg;
 	public static BufferedImage bulletImg;
 	public BufferedImage weapon2Img;
-	Human human = new Human(0, 800, 75, 75);
+	Human human = new Human(0, 800, 75, 75, true);
 	Armour armour = new Armour(0, 800, 85, 85, true);
 	Teammate teammate = new Teammate(300, 300, 75, 75, true);
 	Armour2 armour2= new Armour2(300, 300, 85, 85, true);
 	Weapon weapon = new Weapon(0, 800, 75, 75, true);
 	Weapon2 weapon2 = new Weapon2(300, 300, 50, 50, true);
+	GameObject gameobject= new GameObject(65,86,76, 98, true);
 	ObjectManager manager = new ObjectManager(human);
 	Rocks rocks1 = new Rocks(100, 100, 50, 50, true);
 	Rocks rocks2 = new Rocks(1000, 250, 75, 75, true);
@@ -39,12 +42,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Rocks rocks6 = new Rocks(900, 600, 75, 75, true);
 	Rocks rocks7 = new Rocks(800, 550, 75, 75, true);
 	Rocks rocks8= new Rocks(0,1000,75,75,true);
-
+	Font titleFont;
 	public static BufferedImage monsterImg;
 	public static BufferedImage humanImg;
 	public static BufferedImage teammateImg;
 
-	GamePanel() {
+	GamePanel(String titleOfFont, int plain, int size) {
+		Font titleFont= new Font("Arial", Font.PLAIN, 48);
 		timer.start();
 		try {
 			armourImg = ImageIO.read(this.getClass().getResourceAsStream("firstarmourpiece.png"));
@@ -60,6 +64,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public GamePanel() {
+		
 	}
 
 	public void keyTyped(KeyEvent e) {
@@ -148,19 +156,65 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			JOptionPane.showMessageDialog(null,"Oh yeah teammate, we got this");
 		}
 		
+		//if(e.getKeyCode()==KeyEvent.VK_N) {
+			//if (currentState == MENU_STATE) {
+			//	currentState = GAME_STATE;
+			//} else if (currentState == GAME_STATE) {
+			//	currentState = END_STATE;
+			//} else if (currentState == END_STATE) {
+			//	currentState = MENU_STATE;
+			//}
 		repaint();
+		}
 		
-	}
+		
+	
 
 	public void keyReleased(KeyEvent e) {
 	}
 		
+	//void updateGameState(){
+		//manager.update();
+		//manager.manageEnemies();
+		//manager.purgeObjects();
+		//manager.checkCollision();
+		//System.out.println(manager.getScore());
+		//if(human.isAlive==false) {
+		//	currentState= END_STATE;
+		//	manager.reset();
+		//	human= new Human(GAME_STATE, GAME_STATE, GAME_STATE, GAME_STATE, true);
+		//	human.add(manager);
+		//}
+		//else if(teammate.isAlive==false) {
+			//currentState= END_STATE;
+			//manager.reset();
+		//	teammate= new Teammate(GAME_STATE, GAME_STATE, GAME_STATE, GAME_STATE, true);
+			//human.add(manager);
+		//}
+	//}
 	
+	void updateEndState() {
+		
+	}
 
 	public void actionPerformed(ActionEvent e) {
 		this.requestFocusInWindow();
+		repaint();
+		gameobject.update();
+		//if(currentState==MENU_STATE) {
+		//	updateMenuState();
+		//}
+		//else if(currentState==GAME_STATE) {
+		//	updateGameState();
+		//}
+		//else if(currentState==END_STATE) {
+		//	updateEndState();
+		//}
 	}
 
+	void updateMenuState() {
+		
+	}
 	public void paintComponent(Graphics g) {
 		//g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
 		g.drawImage(armourImg, armour.x, armour.y, armour.width, armour.height, null);
@@ -178,7 +232,42 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		rocks7.draw(g);
 		rocks8.draw(g);
 		human.draw(g);
+		//if (currentState == MENU_STATE) {
+		//	drawMenuState(g);
+		//} else if (currentState == GAME_STATE) {
+		//	drawGameState(g);
+		//} else if (currentState == END_STATE) {
+		//	drawEndState(g);
+		//}
+		gameobject.draw(g);
+	}
 	
+	//void drawMenuState(Graphics g) {
+		//g.setColor(Color.BLUE);
+		//g.fillRect(0, 0, FirstScreen.getWidth(), FirstScreen.getHeight());
+		//g.setFont(titleFont);
+		//g.setColor(Color.CYAN);
+		//g.drawString("Text", 100, 100);
+
+//	}
+
+	//void drawGameState(Graphics g) {
+		//g.setColor(Color.BLACK);
+		//g.fillRect(0, 0, FirstScreen.width, FirstScreen.height);
+		//manager.draw(g);
+	//}
+
+	//void drawEndState(Graphics g) {
+		//g.setColor(Color.RED);
+		//g.fillRect(0, 0, FirstScreen.WIDTH, FirstScreen.HEIGHT);
+		//g.setFont(titleFont);
+		//g.setColor(Color.BLACK);
+		//g.drawString("Your score was " + manager.getScore(), 100, 100);
+	//}
+
+	void startGame() {
+		timer.start();
+	}
 	}
 
-}
+
