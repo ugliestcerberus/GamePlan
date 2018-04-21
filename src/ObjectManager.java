@@ -107,7 +107,10 @@ void purgeObjects() {
 	}
 
 	public void manageEnemies() {
-		
+		if(System.currentTimeMillis()- enemyTimer >= enemySpawnTime) {
+			addEnemy(new Enemies(new Random().nextInt(FirstScreen.WIDTH),0,50,50,true));
+			enemyTimer= System.currentTimeMillis();
+		}
 		
 	}
 
