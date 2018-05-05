@@ -6,7 +6,7 @@ public class GameObject {
 	int y;
 	int width;
 	int height;
-	static boolean isAlive = true;
+ boolean isAlive = true;
 	public Rectangle collisionbox = new Rectangle();
 
 
@@ -16,6 +16,10 @@ public class GameObject {
 		this.width = width;
 		this.height = height;
 		this.isAlive = isAlive;
+	}
+
+	public GameObject() {
+		// TODO Auto-generated constructor stub
 	}
 
 	void update() {

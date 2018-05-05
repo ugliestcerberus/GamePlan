@@ -14,6 +14,7 @@ public class Enemies extends GameObject{
 	}
 	
 	void draw(Graphics g) {
+		if(isAlive)
 		g.drawImage(GamePanel.monsterImg,x,y,width,height,null);
 		g.setColor(Color.BLUE);
 	}

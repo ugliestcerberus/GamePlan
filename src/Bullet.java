@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Bullet extends GameObject{
-	int speed=10;
+	int speed=20;
 	
 	public Bullet(int x, int y, int width, int height, boolean isAlive) {
 		super(x, y, width, height, isAlive);
@@ -23,6 +23,7 @@ void update() {
 }
 void draw(Graphics g) {
 	g.setColor(Color.YELLOW);
+	g.drawRect(x, y, width, height);
 	g.drawImage(GamePanel.bulletImg,x,y,width,height,null);
 }
 }

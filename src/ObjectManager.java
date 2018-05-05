@@ -48,6 +48,9 @@ void purgeObjects() {
 	ObjectManager(Human human) {
 		this.human = human;
 	}
+	void setTeammate(Teammate teammate) {
+		this.teammate = teammate;
+	}
 
 	void draw(Graphics g) {
 		teammate.draw(g);
@@ -77,30 +80,33 @@ void purgeObjects() {
 		}
 	}
 
-
 	void checkCollision() {
 		for (Enemies e : enemies) {
-			if (armour.collisionbox.intersects(e.collisionbox)) {
-				Armour.isAlive = false;
-			} else if (armour2.collisionbox.intersects(e.collisionbox)) {
-				Armour2.isAlive = false;
-			} else if(human.collisionbox.intersects(e.collisionbox)){
+			System.out.println("ja");
+//			if (armour.collisionbox.intersects(e.collisionbox)) {
+//				armour.isAlive = false;
+//			} else if (armour2.collisionbox.intersects(e.collisionbox)) {
+//				armour2.isAlive = false;
+		//	} 
+		if(human.collisionbox.intersects(e.collisionbox)){
 				human.isAlive= false;
 			} 
 			else if(teammate.collisionbox.intersects(e.collisionbox)){
 				teammate.isAlive= false;
 			}
-		}
 		for (Bullet b : bullet) {
-			//if (enemies.collisionbox.intersects(b.collisionbox)) {
-
-			//}
+			if (b.collisionbox.intersects(e.collisionbox)) {
+				System.out.println("hit");
+				e.isAlive= false;
+			}
+		}
 		}
 	}
 
 	public void reset() {
 		
 	}
+
 
 	public int getScore1() {
 		return score;
@@ -113,5 +119,6 @@ void purgeObjects() {
 		}
 		
 	}
+
 
 }

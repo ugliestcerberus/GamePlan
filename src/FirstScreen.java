@@ -29,6 +29,11 @@ public class FirstScreen extends JComponent implements ActionListener, Runnable 
 		mainGameWindow.add(jpanel);
 		jpanel.add(playbutton);
 		playbutton.addActionListener(this);
+		JOptionPane.showMessageDialog(null,
+				"use the a,w,s,d keys to move. A to move left, W to move forward, D to move right, s to move back.Press the left "
+						+ "button on the mouse to shoot a bullet"
+						+ "Remember, if you lose all four lives, you die and lose the game. But you can use many different weapons."
+						+ "Also, if you are in trouble, you can communicate with your teamate by pressing the phone button");
 	}
 
 	public void paint(Graphics g) {

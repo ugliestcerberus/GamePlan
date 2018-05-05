@@ -1,5 +1,3 @@
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,13 +24,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public BufferedImage swordImg;
 	public static BufferedImage bulletImg;
 	public BufferedImage weapon2Img;
-	Human human = new Human(0, 800, 75, 75, true);
+	Human human = new Human(0, 800, 75, 75);
 	Armour armour = new Armour(0, 800, 85, 85, true);
 	Teammate teammate = new Teammate(300, 300, 75, 75, true);
 	Armour2 armour2= new Armour2(300, 300, 85, 85, true);
 	Weapon weapon = new Weapon(0, 800, 75, 75, true);
 	Weapon2 weapon2 = new Weapon2(300, 300, 50, 50, true);
-	GameObject gameobject= new GameObject(65,86,76, 98, true);
 	ObjectManager manager = new ObjectManager(human);
 	Rocks rocks1 = new Rocks(100, 100, 50, 50, true);
 	Rocks rocks2 = new Rocks(1000, 250, 75, 75, true);
@@ -42,14 +39,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Rocks rocks6 = new Rocks(900, 600, 75, 75, true);
 	Rocks rocks7 = new Rocks(800, 550, 75, 75, true);
 	Rocks rocks8= new Rocks(0,1000,75,75,true);
-	Font titleFont;
 	public static BufferedImage monsterImg;
 	public static BufferedImage humanImg;
 	public static BufferedImage teammateImg;
 
-	GamePanel(String titleOfFont, int plain, int size) {
-		Font titleFont= new Font("Arial", Font.PLAIN, 48);
+	GamePanel() {
 		timer.start();
+		manager.setTeammate(teammate);
 		try {
 			armourImg = ImageIO.read(this.getClass().getResourceAsStream("firstarmourpiece.png"));
 			armourImg2 = ImageIO.read(this.getClass().getResourceAsStream("secondarmourpiece.png"));
@@ -64,10 +60,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public GamePanel() {
-		
+	manager.addEnemy(new Enemies(110, 200, 50, 50, true));
+	
 	}
 
 	public void keyTyped(KeyEvent e) {
@@ -156,46 +150,37 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			JOptionPane.showMessageDialog(null,"Oh yeah teammate, we got this");
 		}
 		
-		//if(e.getKeyCode()==KeyEvent.VK_N) {
-			//if (currentState == MENU_STATE) {
-			//	currentState = GAME_STATE;
-			//} else if (currentState == GAME_STATE) {
-			//	currentState = END_STATE;
-			//} else if (currentState == END_STATE) {
-			//	currentState = MENU_STATE;
-			//}
 		repaint();
-		}
 		
-		
-	
+	}
 
 	public void keyReleased(KeyEvent e) {
 	}
 		
+
 	
-	
-	void updateEndState() {
-		
-	}
 
 	public void actionPerformed(ActionEvent e) {
 		this.requestFocusInWindow();
+manager.update();
+manager.checkCollision();
 		repaint();
-		gameobject.update();
+		//gameobject.update();
+
 	}
 
-	void updateMenuState() {
-		
-	}
 	public void paintComponent(Graphics g) {
 		//g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
 		g.drawImage(armourImg, armour.x, armour.y, armour.width, armour.height, null);
 		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
-		g.drawImage(monsterImg, 110, 200, 50, 50, null);
+		
 		g.drawImage(teammateImg, teammate.x, teammate.y, teammate.width, teammate.height, null);
 		g.drawImage(armourImg2, armour2.x, armour2.y, armour2.width, armour2.height, null);
 		g.drawImage(weapon2Img, weapon2.x, weapon2.y, weapon2.width, weapon2.height, null);
+		
+
+		manager.draw(g);
+	
 		rocks1.draw(g);
 		rocks2.draw(g);
 		rocks3.draw(g);
@@ -204,36 +189,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		rocks6.draw(g);
 		rocks7.draw(g);
 		rocks8.draw(g);
-		human.draw(g);
-		gameobject.draw(g);
-	}
 	
-	//void drawMenuState(Graphics g) {
-		//g.setColor(Color.BLUE);
-		//g.fillRect(0, 0, FirstScreen.getWidth(), FirstScreen.getHeight());
-		//g.setFont(titleFont);
-		//g.setColor(Color.CYAN);
-		//g.drawString("Text", 100, 100);
-
-//	}
-
-	//void drawGameState(Graphics g) {
-		//g.setColor(Color.BLACK);
-		//g.fillRect(0, 0, FirstScreen.width, FirstScreen.height);
-		//manager.draw(g);
-	//}
-
-	//void drawEndState(Graphics g) {
-		//g.setColor(Color.RED);
-		//g.fillRect(0, 0, FirstScreen.WIDTH, FirstScreen.HEIGHT);
-		//g.setFont(titleFont);
-		//g.setColor(Color.BLACK);
-		//g.drawString("Your score was " + manager.getScore(), 100, 100);
-	//}
-
-	void startGame() {
-		timer.start();
-	}
 	}
 
-
+}

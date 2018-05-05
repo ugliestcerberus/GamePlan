@@ -16,7 +16,7 @@ public class Teammate extends GameObject {
 	}
 	void draw(Graphics g) {
 		g.drawImage(GamePanel.teammateImg, x, y, width, height, null);
-		System.out.println("drawing teammate at" + y);
+		//System.out.println("drawing teammate at" + y);
 	}
 }
 
