@@ -173,25 +173,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyReleased(KeyEvent e) {
 	}
 		
-	//void updateGameState(){
-		//manager.update();
-		//manager.manageEnemies();
-		//manager.purgeObjects();
-		//manager.checkCollision();
-		//System.out.println(manager.getScore());
-		//if(human.isAlive==false) {
-		//	currentState= END_STATE;
-		//	manager.reset();
-		//	human= new Human(GAME_STATE, GAME_STATE, GAME_STATE, GAME_STATE, true);
-		//	human.add(manager);
-		//}
-		//else if(teammate.isAlive==false) {
-			//currentState= END_STATE;
-			//manager.reset();
-		//	teammate= new Teammate(GAME_STATE, GAME_STATE, GAME_STATE, GAME_STATE, true);
-			//human.add(manager);
-		//}
-	//}
+	
 	
 	void updateEndState() {
 		
@@ -201,15 +183,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		this.requestFocusInWindow();
 		repaint();
 		gameobject.update();
-		//if(currentState==MENU_STATE) {
-		//	updateMenuState();
-		//}
-		//else if(currentState==GAME_STATE) {
-		//	updateGameState();
-		//}
-		//else if(currentState==END_STATE) {
-		//	updateEndState();
-		//}
 	}
 
 	void updateMenuState() {
@@ -232,13 +205,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		rocks7.draw(g);
 		rocks8.draw(g);
 		human.draw(g);
-		//if (currentState == MENU_STATE) {
-		//	drawMenuState(g);
-		//} else if (currentState == GAME_STATE) {
-		//	drawGameState(g);
-		//} else if (currentState == END_STATE) {
-		//	drawEndState(g);
-		//}
 		gameobject.draw(g);
 	}
 	
