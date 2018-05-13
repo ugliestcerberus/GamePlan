@@ -10,7 +10,7 @@ public class ObjectManager {
 	int score = 0;
 	long enemyTimer = System.currentTimeMillis();
 	int enemySpawnTime = 1000;
-	ArrayList<Enemies> enemies = new ArrayList<Enemies>();
+	ArrayList<Monster> monster = new ArrayList<Monster>();
 	ArrayList<Bullet> bullet = new ArrayList<Bullet>();
 	Teammate teammate;
 	Human human;
@@ -18,20 +18,18 @@ public class ObjectManager {
 	Armour2 armour2;
 
 
-	
-
 	void addBullet(Bullet b) {
 		bullet.add(b);
 	}
 
-	void addEnemy(Enemies e) {
-		enemies.add(e);
+	void addEnemy(Monster m) {
+		monster.add(m);
 	}
 	
 void purgeObjects() {
-		for (int i = 0; i < enemies.size(); i++) {
-			if (enemies.get(i).isAlive == false) {
-				enemies.remove(i);
+		for (int i = 0; i < monster.size(); i++) {
+			if (monster.get(i).isAlive == false) {
+				monster.remove(i);
 			}
 		}
 		for (int i = 0; i < bullet.size(); i++) {
@@ -58,13 +56,13 @@ void purgeObjects() {
 		for (Bullet b : bullet) {
 			b.draw(g);
 		}
-		for (Enemies e : enemies) {
-			e.draw(g);
+		for (Monster m: monster) {
+			m.draw(g);
 		}
 	}
-	public void ManageEnemies() {
+	public void ManageMonsters() {
 		if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
-			addEnemy(new Enemies(new Random().nextInt(ThirdScreen.width),0,50,50,true));
+			addMonster(new Monster(new Random().nextInt(ThirdScreen.width),0,50,50,true));
 			enemyTimer=System.currentTimeMillis();
 		}
 	}
@@ -75,29 +73,23 @@ void purgeObjects() {
 		for (Bullet b : bullet) {
 			b.update();
 		}
-		for (Enemies e : enemies) {
-			e.update();
+		for (Monster m: monster) {
+			m.update();
 		}
 	}
 
 	void checkCollision() {
-		for (Enemies e : enemies) {
-			System.out.println("ja");
-//			if (armour.collisionbox.intersects(e.collisionbox)) {
-//				armour.isAlive = false;
-//			} else if (armour2.collisionbox.intersects(e.collisionbox)) {
-//				armour2.isAlive = false;
-		//	} 
-		if(human.collisionbox.intersects(e.collisionbox)){
+		for (Monster m: monster) {
+			if(human.collisionbox.intersects(m.collisionbox)){
 				human.isAlive= false;
 			} 
-			else if(teammate.collisionbox.intersects(e.collisionbox)){
+			else if(teammate.collisionbox.intersects(m.collisionbox)){
 				teammate.isAlive= false;
 			}
 		for (Bullet b : bullet) {
-			if (b.collisionbox.intersects(e.collisionbox)) {
+			if (b.collisionbox.intersects(m.collisionbox)) {
 				System.out.println("hit");
-				e.isAlive= false;
+				m.isAlive= false;
 			}
 		}
 		}
@@ -112,11 +104,15 @@ void purgeObjects() {
 		return score;
 	}
 
-	public void manageEnemies() {
+	public void manageMonsters() {
 		if(System.currentTimeMillis()- enemyTimer >= enemySpawnTime) {
-			addEnemy(new Enemies(new Random().nextInt(FirstScreen.WIDTH),0,50,50,true));
+			addMonster(new Monster(new Random().nextInt(FirstScreen.WIDTH),0,50,50,true));
 			enemyTimer= System.currentTimeMillis();
 		}
+	}
+
+	void addMonster(Monster monster) {
+		
 		
 	}
 

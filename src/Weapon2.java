@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+
 public class Weapon2 extends GameObject{
 
 	public Weapon2(int x2, int y2, int width2, int height2, boolean isAlive) {
@@ -8,5 +10,9 @@ public class Weapon2 extends GameObject{
 		this.height= height2;
 		this.isAlive= isAlive;
 	}
+	
+	//void draw(Graphics g) {
+		//g.drawImage(GamePanel.weapon2Img, x,y,50,50,null);
+	//}
 
 }

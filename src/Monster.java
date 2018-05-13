@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Monster extends GameObject {
 
@@ -5,5 +7,14 @@ public class Monster extends GameObject {
 		super(x, y, width, height, isAlive);
 		
 	}
-
+	void draw(Graphics g) {
+		if(isAlive)
+			g.drawImage(GamePanel.monsterImg,x,y,width,height,null);
+			g.setColor(Color.BLUE);
+	}
+	void update() {
+		super.update();
+		x+=1;
+		y+=1;
+	}
 }

@@ -46,7 +46,7 @@ public class ThirdScreen {
 			monsterImg= ImageIO.read(this.getClass().getResourceAsStream("enemies.jpg"));
 			humanImg= ImageIO.read(this.getClass().getResourceAsStream("human.jpg"));
 			teammateImg= ImageIO.read(this.getClass().getResourceAsStream("teammate.jpg"));
-			weapon2Img= ImageIO.read(this.getClass().getResourceAsStream("second handgun.png"));
+			weapon2Img= ImageIO.read(this.getClass().getResourceAsStream("glock.png"));
 			walkie=new ImageIcon(walkieImg);
 			walkietalkie.setIcon(walkie);
 			walkietalkie.setBounds(1500, 0, 100, 100);

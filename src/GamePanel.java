@@ -30,24 +30,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Armour2 armour2= new Armour2(300, 300, 85, 85, true);
 	Weapon weapon = new Weapon(0, 800, 75, 75, true);
 	Weapon2 weapon2 = new Weapon2(300, 300, 50, 50, true);
+	Monster monster= new Monster(0,0,50,50,true);
 	ObjectManager manager = new ObjectManager(human);
-	Rocks rocks1 = new Rocks(100, 100, 50, 50, true);
-	Rocks rocks2 = new Rocks(1000, 250, 75, 75, true);
-	Rocks rocks3 = new Rocks(500, 200, 75, 75, true);
-	Rocks rocks4 = new Rocks(700, 250, 75, 75, true);
-	Rocks rocks5 = new Rocks(600, 450, 75, 75, true);
-	Rocks rocks6 = new Rocks(900, 600, 75, 75, true);
-	Rocks rocks7 = new Rocks(800, 550, 75, 75, true);
-	Rocks rocks8= new Rocks(0,1000,75,75,true);
 	public static BufferedImage monsterImg;
 	public static BufferedImage humanImg;
 	public static BufferedImage teammateImg;
+	public static BufferedImage weaponImg;
 
 	GamePanel() {
 		timer.start();
 		manager.setTeammate(teammate);
 		try {
-			armourImg = ImageIO.read(this.getClass().getResourceAsStream("firstarmourpiece.png"));
+			armourImg = ImageIO.read(this.getClass().getResourceAsStream("firstarmourpiece.jpg"));
 			armourImg2 = ImageIO.read(this.getClass().getResourceAsStream("secondarmourpiece.png"));
 			walkieImg = ImageIO.read(this.getClass().getResourceAsStream("walkietalkie.jpeg"));
 			rockImg = ImageIO.read(this.getClass().getResourceAsStream("rock.png"));
@@ -60,8 +54,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	manager.addEnemy(new Enemies(110, 200, 50, 50, true));
 	
+	manager.addEnemy(new Monster(0, 0, 50, 50, true));
+	manager.addEnemy(monster);
 	}
 
 	public void keyTyped(KeyEvent e) {
@@ -123,7 +118,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			JOptionPane.showMessageDialog(null,"Help me out, teammate!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_2) {
-			JOptionPane.showMessageDialog(null,"Get out of the area, Teammate!");
+			JOptionPane.showMessageDialog(null,"stay out of the area, Teammate!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_3) {
 			JOptionPane.showMessageDialog(null,"I'm coming to help, Teammate");
@@ -134,20 +129,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_5) {
 			JOptionPane.showMessageDialog(null,"Oh yeah teammate, we got this");
 		}
-		if (e.getKeyCode() == KeyEvent.VK_NUMPAD1) {
+		if (e.getKeyCode() == KeyEvent.VK_6) {
 			JOptionPane.showMessageDialog(null,"Help me out, Human!");
 		}
-		if (e.getKeyCode() == KeyEvent.VK_NUMPAD2) {
-			JOptionPane.showMessageDialog(null,"Get out of the area, Human!");
+		if (e.getKeyCode() == KeyEvent.VK_7) {
+			JOptionPane.showMessageDialog(null,"stay out of the area, Human!");
 		}
-		if (e.getKeyCode() == KeyEvent.VK_NUMPAD3) {
-			JOptionPane.showMessageDialog(null,"I'm coming to help, Teammate");
+		if (e.getKeyCode() == KeyEvent.VK_8) {
+			JOptionPane.showMessageDialog(null,"I'm coming to help, Human");
 		}
-		if (e.getKeyCode() == KeyEvent.VK_NUMPAD4) {
-			JOptionPane.showMessageDialog(null,"Follow me, Teammate");
+		if (e.getKeyCode() == KeyEvent.VK_9) {
+			JOptionPane.showMessageDialog(null,"Follow me, Human");
 		}
-		if (e.getKeyCode() == KeyEvent.VK_NUMPAD5) {
-			JOptionPane.showMessageDialog(null,"Oh yeah teammate, we got this");
+		if (e.getKeyCode() == KeyEvent.VK_0) {
+			JOptionPane.showMessageDialog(null,"Oh yeah human, we got this");
 		}
 		
 		repaint();
@@ -162,34 +157,26 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void actionPerformed(ActionEvent e) {
 		this.requestFocusInWindow();
-manager.update();
-manager.checkCollision();
+		manager.update();
+		manager.checkCollision();
 		repaint();
 		//gameobject.update();
 
 	}
 
 	public void paintComponent(Graphics g) {
-		//g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
 		g.drawImage(armourImg, armour.x, armour.y, armour.width, armour.height, null);
-		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
-		
+		manager.draw(g);
+		//g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
 		g.drawImage(teammateImg, teammate.x, teammate.y, teammate.width, teammate.height, null);
+		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
 		g.drawImage(armourImg2, armour2.x, armour2.y, armour2.width, armour2.height, null);
 		g.drawImage(weapon2Img, weapon2.x, weapon2.y, weapon2.width, weapon2.height, null);
+		//g.drawImage(weaponImg, weapon.x, weapon.y, weapon.width, weapon.height,null);
+		g.drawImage(monsterImg, monster.x, monster.y, monster.width, monster.height, null);
 		
 
-		manager.draw(g);
-	
-		rocks1.draw(g);
-		rocks2.draw(g);
-		rocks3.draw(g);
-		rocks4.draw(g);
-		rocks5.draw(g);
-		rocks6.draw(g);
-		rocks7.draw(g);
-		rocks8.draw(g);
-	
+		
 	}
 
 }
