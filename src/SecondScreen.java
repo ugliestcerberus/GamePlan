@@ -11,7 +11,7 @@ public class SecondScreen implements ActionListener{
 	JPanel jpanel = new JPanel();
 	JButton button= new JButton();
 	JTextField jtextfield1 = new JTextField();
-	JTextField jtextfield2= new JTextField();
+	JTextField jtextfield2 = new JTextField();
 	JTextField jtextfield3= new JTextField();
 	JTextField jtextfield4= new JTextField();
 	JTextField jtextfield5= new JTextField();

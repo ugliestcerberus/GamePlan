@@ -7,6 +7,7 @@ public class ObjectManager {
 	int y;
 	int width;
 	int height;
+	//commedf
 	int score = 0;
 	long enemyTimer = System.currentTimeMillis();
 	int enemySpawnTime = 1000;
