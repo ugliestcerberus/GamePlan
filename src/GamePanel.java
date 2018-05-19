@@ -38,6 +38,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage weaponImg;
 
 	GamePanel() {
+		//Hello!
 		timer.start();
 		manager.setTeammate(teammate);
 		try {
