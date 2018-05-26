@@ -27,9 +27,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Human human = new Human(0, 800, 75, 75);
 	Armour armour = new Armour(0, 800, 85, 85, true);
 	Teammate teammate = new Teammate(300, 300, 75, 75, true);
-	Armour2 armour2= new Armour2(300, 300, 85, 85, true);
 	Weapon weapon = new Weapon(0, 800, 75, 75, true);
-	Weapon2 weapon2 = new Weapon2(300, 300, 50, 50, true);
 	Monster monster= new Monster(0,0,50,50,true);
 	ObjectManager manager = new ObjectManager(human);
 	public static BufferedImage monsterImg;
@@ -52,6 +50,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			teammateImg = ImageIO.read(this.getClass().getResourceAsStream("teammate.jpg"));
 			bulletImg = ImageIO.read(this.getClass().getResourceAsStream("bullet.png"));
 			weapon2Img = ImageIO.read(this.getClass().getResourceAsStream("glock.png"));
+			weaponImg= ImageIO.read(this.getClass().getResourceAsStream("glocks.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -59,7 +58,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	manager.addEnemy(new Monster(0, 0, 50, 50, true));
 	manager.addMonster(monster);
 	manager.addArmour(armour);
-	manager.addArmour2(armour2);
 	}
 
 	public void keyTyped(KeyEvent e) {
@@ -69,44 +67,28 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		
 		if (e.getKeyCode() == KeyEvent.VK_A) {
-			human.x -= 50;
-			weapon.x -= 50;
-			armour.x -= 50;
+		human.moveLeft();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_W) {
-			human.y -= 50;
-			weapon.y -=50;
-			armour.y -=50;
+		human.moveUp();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_S) {
-			human.y += 50;
-			weapon.y += 50;
-			armour.y += 50;
+		human.moveDown();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_D) {
-			human.x += 50;
-			weapon.x += 50;
-			armour.x += 50;
+		human.moveRight();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			teammate.y += 50;
-			weapon2.y += 50;
-			armour2.y += 50;
+		teammate.moveDown();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			teammate.y -= 50;
-			weapon2.y -= 50;
-			armour2.y -= 50;
+		teammate.moveUp();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			teammate.x -= 50;
-			weapon2.x -= 50;
-			armour2.x -= 50;
+		teammate.moveLeft();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			teammate.x += 50;
-			weapon2.x += 50;
-			armour2.x += 50;
+		teammate.moveRight();
 		}
 		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
 			manager.addBullet(new Bullet(human.x, human.y, 50, 50, true));
@@ -173,8 +155,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		//g.drawImage(humanImg, human.x, human.y, human.width, human.height, null);
 		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
 		//g.drawImage(armourImg2, armour2.x, armour2.y, armour2.width, armour2.height, null);
-		g.drawImage(teammateImg, teammate.x, teammate.y, teammate.width, teammate.height, null);
-		g.drawImage(weapon2Img, weapon2.x, weapon2.y, weapon2.width, weapon2.height, null);
+		//g.drawImage(teammateImg, teammate.x, teammate.y, teammate.width, teammate.height, null);
 		//g.drawImage(weaponImg, weapon.x, weapon.y, weapon.width, weapon.height,null);
 		//g.drawImage(monsterImg, monster.x, monster.y, monster.width, monster.height, null);
 		

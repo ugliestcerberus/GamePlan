@@ -73,9 +73,6 @@ void purgeObjects() {
 		for (Armour armour: armour) {
 			armour.draw(g);
 		}
-		for(Armour2 armor21: armour2) {
-			armor21.draw(g);
-		}
 	}
 	public void ManageMonsters() {
 		if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
@@ -105,9 +102,11 @@ void purgeObjects() {
 		for (Monster m: monster) {
 			if(human.collisionbox.intersects(m.collisionbox)){
 				human.isAlive= false;
+				System.out.println("Human is dead!");
 			} 
 			else if(teammate.collisionbox.intersects(m.collisionbox)){
-				teammate.isAlive= false;
+				teammate.takesDamage();
+				System.out.println("Teammate is dead");
 			}
 		for (Bullet b : bullet) {
 			if (b.collisionbox.intersects(m.collisionbox)) {
@@ -115,18 +114,18 @@ void purgeObjects() {
 				m.isAlive= false;
 			}
 		}
-		for(Armour2 a: armour2) {
-			if(a.collisionbox.intersects(m.collisionbox)) {
-				a.isAlive=false;
-				System.out.println("Dead armour2!");
-			}
-		}
-		for(Armour as: armour) {
-			if(as.collisionbox.intersects(m.collisionbox)) {
-				as.isAlive=false;
-				System.out.println("Dead armour!");
-			}
-		}
+//		for(Armour2 a: armour2) {
+//			if(a.collisionbox.intersects(m.collisionbox)) {
+//				a.isAlive=false;
+//				System.out.println("Dead armour2!");
+//			}
+//		}
+//		for(Armour as: armour) {
+//			if(as.collisionbox.intersects(m.collisionbox)) {
+//				as.isAlive=false;
+//				System.out.println("Dead armour!");
+//			}
+//		}
 		}
 	}
 	
