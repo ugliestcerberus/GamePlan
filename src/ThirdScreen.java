@@ -34,7 +34,6 @@ public class ThirdScreen {
 		walkietalkie.addActionListener(jpanel);
 		jpanel.addKeyListener(jpanel);
 		jpanel.requestFocusInWindow();
-		//gamescreen.addKeyListener(jpanel);
 		gamescreen.setSize(900, 900);
 		jlabel.setText("Lives");
 		try {
@@ -54,8 +53,6 @@ public class ThirdScreen {
 	}catch(IOException e) {
 		e.printStackTrace();
 	}		
-		
-		
 		jpanel.repaint();
 	}
 }

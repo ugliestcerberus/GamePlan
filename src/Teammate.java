@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Teammate extends GameObject {
 	int speed;
-	Armour2 armour2; 
+	Armour armour2; 
 	Weapon2 weapon2;
 	int armour=100;
 	Teammate(int x, int y, int width, int height,boolean isAlive){
@@ -14,12 +14,8 @@ public class Teammate extends GameObject {
 		this.y=y;
 		this.width=width;
 		this.height=height;
-		try {
-			armour2= new Armour2(300,300,85,85, true);
-			weapon2 = new Weapon2(300, 300, 50, 50, true);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		armour2= new Armour(300,300,85,85, true);
+		weapon2 = new Weapon2(300, 300, 50, 50, true);
 	}
 	void update() {
 		super.update();
