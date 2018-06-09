@@ -14,8 +14,8 @@ public class Teammate extends GameObject {
 		this.y=y;
 		this.width=width;
 		this.height=height;
-		armour2= new Armour(300,300,85,85, true);
-		weapon2 = new Weapon2(300, 300, 50, 50, true);
+		armour2= new Armour(300,800,85,85, true);
+		weapon2 = new Weapon2(300, 800, 50, 50, true);
 	}
 	void update() {
 		super.update();
@@ -25,7 +25,7 @@ public class Teammate extends GameObject {
 		g.drawImage(GamePanel.teammateImg, x, y, width, height, null);
 		g.setColor(Color.BLUE);
 		}
-		if(armour>100) {
+		if(armour2.isAlive) {
 		armour2.draw(g);	
 		}
 			g.drawImage(weapon2.weapon2Img, weapon2.x, weapon2.y, weapon2.width, weapon2.height, null);
@@ -50,14 +50,6 @@ public class Teammate extends GameObject {
 		weapon2.y -= 50;
 		armour2.y -= 50;
 	}
-	public void takesDamage() {
-		if(armour>0) {
-			armour--;
-		}
-		else{
-			isAlive=false;
-		}
-			
-	}
+	
 }
 

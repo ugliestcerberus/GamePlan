@@ -5,6 +5,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
+
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,7 +29,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public BufferedImage weapon2Img;
 	Human human = new Human(0, 800, 75, 75);
 	Armour armour = new Armour(0, 800, 85, 85, true);
-	Teammate teammate = new Teammate(300, 300, 75, 75, true);
+	Teammate teammate = new Teammate(300, 800, 75, 75, true);
 	Weapon weapon = new Weapon(0, 800, 75, 75, true);
 	Monster monster = new Monster(0, 0, 50, 50, true);
 	ObjectManager manager = new ObjectManager(human);
@@ -54,9 +56,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		manager.addEnemy(new Monster(0, 0, 50, 50, true));
-		manager.addMonster(monster);
-		manager.addArmour(armour);
+		
 	}
 
 	public void keyTyped(KeyEvent e) {
@@ -67,7 +67,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		if (e.getKeyCode() == KeyEvent.VK_A) {
 			human.moveLeft();
-			armour.moveLeft();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_W) {
 			human.moveUp();
@@ -129,13 +128,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_0) {
 			JOptionPane.showMessageDialog(null, "Oh yeah human, we got this");
 		}
-
 		repaint();
-
-	}
-
-	public void keyReleased(KeyEvent e) {
-
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -144,6 +137,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		manager.checkCollision();
 		repaint();
 		manager.purgeObjects();
+		manager.manageMonsters();
 	}
 
 	public void drawEndState() {
@@ -155,5 +149,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		manager.draw(g);
 		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
 		g.drawImage(weaponImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
+	}
+
+	public void keyReleased(KeyEvent e) {
+		
+		
 	}
 }

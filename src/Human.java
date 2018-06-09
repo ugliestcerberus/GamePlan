@@ -62,14 +62,5 @@ public class Human extends GameObject {
 		weapon.y -= 50;
 		armour.y -= 50;
 	}
-
-	public void takesDamage() {
-		// if(armour3>0) {
-		// armour3--;
-		// }
-		// else{
-		// isAlive=false;
-		// }
-
-	}
 }
+

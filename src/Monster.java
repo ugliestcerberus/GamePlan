@@ -12,9 +12,16 @@ public class Monster extends GameObject {
 			g.drawImage(GamePanel.monsterImg,x,y,width,height,null);
 			g.setColor(Color.BLUE);
 	}
+	void getX() {
+		
+	}
+	void getY() {
+		
+	}
 	void update() {
 		super.update();
 		x+=1;
 		y+=1;
 	}
+	
 }

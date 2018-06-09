@@ -13,7 +13,7 @@ public class ObjectManager {
 	boolean hit;
 	ArrayList<Monster> monster = new ArrayList<Monster>();
 	ArrayList<Bullet> bullet = new ArrayList<Bullet>();
-	ArrayList<Armour> armour = new ArrayList<Armour>();
+	// ArrayList<Armour> armour = new ArrayList<Armour>();
 	// ArrayList<Armour2> armour2= new ArrayList<Armour2>();
 	int timefromHit = 0;
 	Teammate teammate;
@@ -33,11 +33,11 @@ public class ObjectManager {
 				monster.remove(i);
 			}
 		}
-		for (int i = 0; i < armour.size(); i++) {
-			if (armour.get(i).isAlive == false) {
-				armour.remove(i);
-			}
-		}
+		// for (int i = 0; i < armour.size(); i++) {
+		// if (armour.get(i).isAlive == false) {
+		// armour.remove(i);
+		// }
+		// }
 		// for(int i=0; i< armour2.size();i++) {
 		// if(armour2.get(i).isAlive==false) {
 		// armour2.remove(i);
@@ -75,15 +75,15 @@ public class ObjectManager {
 		for (Monster m : monster) {
 			m.draw(g);
 		}
-		for (Armour armour : armour) {
-			armour.draw(g);
-		}
+		// for (Armour armour : armour) {
+		// armour.draw(g);
+		// }
 		// for(Armour2 armour2: armour2) {
 		// armour2.draw(g);
 		// }
 	}
 
-	public void ManageMonsters() {
+	public void manageMonsters1() {
 		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
 			addMonster(new Monster(new Random().nextInt(ThirdScreen.width), 0, 50, 50, true));
 			enemyTimer = System.currentTimeMillis();
@@ -99,39 +99,48 @@ public class ObjectManager {
 		for (Monster m : monster) {
 			m.update();
 		}
-		for (Armour a : armour) {
-			a.update();
-		}
+		// for (Armour a : armour) {
+		// a.update();
+		// }
 		// for(Armour2 as: armour2) {
 		// as.update();
 		// }
 	}
 
 	void checkCollision() {
-		if(timefromHit++ > 120) {
-		
+		if (timefromHit++ > 120) {
+
 			for (Monster m : monster) {
-			System.out.println(timefromHit);
-			if (human.collisionbox.intersects(m.collisionbox)) {
-				timefromHit = 0;
-				System.out.println("hit");
-				if (human.armour.isAlive == false) {
-					human.isAlive = false;
-					System.out.println("Human is dead!");
-				} else {
-					human.armour.isAlive = false;
-					break;
-				}
-			} else if (teammate.collisionbox.intersects(m.collisionbox)) {
-				teammate.takesDamage();
-				System.out.println("Teammate is dead");
-			} 
-			for (Bullet b : bullet) {
-				if (b.collisionbox.intersects(m.collisionbox)) {
+				System.out.println(timefromHit);
+				if (human.collisionbox.intersects(m.collisionbox)) {
+					timefromHit = 0;
 					System.out.println("hit");
-					m.isAlive = false;
+					if (human.armour.isAlive == false) {
+						human.isAlive = false;
+						System.out.println("Human is dead!");
+					} else {
+						human.armour.isAlive = false;
+						break;
+					}
+				} else if (teammate.collisionbox.intersects(m.collisionbox)) {
+					timefromHit = 0;
+					System.out.println();
+					if (teammate.armour2.isAlive == false) {
+						teammate.isAlive = false;
+						System.out.println("Teammate is dead");
+					} else {
+						teammate.armour2.isAlive = false;
+						break;
+					}
+				}
+				for (Bullet b : bullet) {
+					if (b.collisionbox.intersects(m.collisionbox)) {
+						System.out.println("hit");
+						m.isAlive = false;
+					}
 				}
 			}
+
 			// for(Armour2 a: armour2) {
 			// if(a.collisionbox.intersects(m.collisionbox)) {
 			// a.isAlive=false;
@@ -144,7 +153,6 @@ public class ObjectManager {
 			// System.out.println("Dead armour!");
 			// }
 			// }
-		}
 		}
 	}
 
@@ -167,9 +175,9 @@ public class ObjectManager {
 		monster.add(m);
 	}
 
-	void addArmour(Armour arm) {
-		armour.add(arm);
-	}
+	// void addArmour(Armour arm) {
+	// armour.add(arm);
+	// }
 
 	// public void addArmour2(Armour2 arm) {
 	// armour2.add(arm);
