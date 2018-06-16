@@ -85,10 +85,11 @@ public class ObjectManager {
 
 	public void manageMonsters1() {
 		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
-			addMonster(new Monster(new Random().nextInt(ThirdScreen.width), 0, 50, 50, true));
+			addMonster(new Monster(new Random().nextInt(ThirdScreen.width), new Random().nextInt(ThirdScreen.width), 50, 50, true));
 			enemyTimer = System.currentTimeMillis();
 		}
 	}
+
 
 	void update() {
 		teammate.update();
@@ -111,7 +112,7 @@ public class ObjectManager {
 		if (timefromHit++ > 120) {
 
 			for (Monster m : monster) {
-				System.out.println(timefromHit);
+				//System.out.println(timefromHit);
 				if (human.collisionbox.intersects(m.collisionbox)) {
 					timefromHit = 0;
 					System.out.println("hit");
@@ -137,6 +138,8 @@ public class ObjectManager {
 					if (b.collisionbox.intersects(m.collisionbox)) {
 						System.out.println("hit");
 						m.isAlive = false;
+						System.out.println(score);
+						score++;
 					}
 				}
 			}
@@ -166,7 +169,7 @@ public class ObjectManager {
 
 	public void manageMonsters() {
 		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
-			addMonster(new Monster(new Random().nextInt(FirstScreen.WIDTH), 0, 50, 50, true));
+			addMonster(new Monster(new Random().nextInt(900), new Random().nextInt(500), 50, 50, true));
 			enemyTimer = System.currentTimeMillis();
 		}
 	}

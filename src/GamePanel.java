@@ -99,34 +99,34 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			human.addBullet(new Bullet(0, 800, 50, 50, true));
 		}
 		if (e.getKeyCode() == KeyEvent.VK_1) {
-			JOptionPane.showMessageDialog(null, "Help me out, teammate!");
+			speak("Help me out, teammate!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_2) {
-			JOptionPane.showMessageDialog(null, "stay out of the area, Teammate!");
+			speak("stay out of the area, Teammate!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_3) {
-			JOptionPane.showMessageDialog(null, "I'm coming to help, Teammate");
+			speak("I'm coming to help, Teammate");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_4) {
-			JOptionPane.showMessageDialog(null, "Follow me,Teammate");
+			speak("Follow me,Teammate");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_5) {
-			JOptionPane.showMessageDialog(null, "Oh yeah teammate, we got this");
+			speak("Oh yeah teammate, we got this");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_6) {
-			JOptionPane.showMessageDialog(null, "Help me out, Human!");
+			speak("Help me out, Human!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_7) {
-			JOptionPane.showMessageDialog(null, "stay out of the area, Human!");
+			speak("stay out of the area, Human!");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_8) {
-			JOptionPane.showMessageDialog(null, "I'm coming to help, Human");
+			speak("I'm coming to help, Human");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_9) {
-			JOptionPane.showMessageDialog(null, "Follow me, Human");
+			speak("Follow me, Human");
 		}
 		if (e.getKeyCode() == KeyEvent.VK_0) {
-			JOptionPane.showMessageDialog(null, "Oh yeah human, we got this");
+			speak("Oh yeah human, we got this");
 		}
 		repaint();
 	}
@@ -149,8 +149,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		manager.draw(g);
 		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
 		g.drawImage(weaponImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
+		drawEndState();
 	}
 
+	static void speak(String words) {
+		try {
+			Runtime.getRuntime().exec("say " + words);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public void keyReleased(KeyEvent e) {
 		
 		
