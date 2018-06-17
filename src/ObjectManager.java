@@ -119,6 +119,7 @@ public class ObjectManager {
 					if (human.armour.isAlive == false) {
 						human.isAlive = false;
 						System.out.println("Human is dead!");
+						drawEndState();
 					} else {
 						human.armour.isAlive = false;
 						break;
@@ -129,6 +130,7 @@ public class ObjectManager {
 					if (teammate.armour2.isAlive == false) {
 						teammate.isAlive = false;
 						System.out.println("Teammate is dead");
+						drawEndState();
 					} else {
 						teammate.armour2.isAlive = false;
 						break;
