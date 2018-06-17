@@ -149,7 +149,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		manager.draw(g);
 		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
 		g.drawImage(weaponImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
-		drawEndState();
 	}
 
 	static void speak(String words) {
