@@ -141,9 +141,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawEndState() {
-		if(human.isAlive||teammate.isAlive==false) {
+		
 			JOptionPane.showMessageDialog(null, "Game over.Your score was"+ score);
-		}
+		
 	}
 	public void paintComponent(Graphics g) {
 		manager.draw(g);
