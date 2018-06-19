@@ -139,12 +139,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		manager.purgeObjects();
 		manager.manageMonsters();
 	}
-
-	public void drawEndState() {
-		
-			JOptionPane.showMessageDialog(null, "Game over.Your score was"+ score);
-		
-	}
+	
 	public void paintComponent(Graphics g) {
 		manager.draw(g);
 		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
