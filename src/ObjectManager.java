@@ -15,6 +15,7 @@ public class ObjectManager {
 	ArrayList<Bullet> bullet = new ArrayList<Bullet>();
 	// ArrayList<Armour> armour = new ArrayList<Armour>();
 	// ArrayList<Armour2> armour2= new ArrayList<Armour2>();
+	// We are not needing the armour to have arrays because the armour is not being used
 	int timefromHit = 0;
 	Teammate teammate;
 	Human human;
@@ -36,11 +37,14 @@ public class ObjectManager {
 		// for (int i = 0; i < armour.size(); i++) {
 		// if (armour.get(i).isAlive == false) {
 		// armour.remove(i);
+		// We already have code that removes the armour. 
+		// It is break;
 		// }
 		// }
 		// for(int i=0; i< armour2.size();i++) {
 		// if(armour2.get(i).isAlive==false) {
 		// armour2.remove(i);
+		//Same as the code above. 
 		// }
 		// }
 		for (int i = 0; i < bullet.size(); i++) {
@@ -77,9 +81,11 @@ public class ObjectManager {
 		}
 		// for (Armour armour : armour) {
 		// armour.draw(g);
+		//This code is unnecessary because we are not trying to draw armour in this game. 
 		// }
 		// for(Armour2 armour2: armour2) {
 		// armour2.draw(g);
+		//This is the same as above. 
 		// }
 	}
 
@@ -102,9 +108,11 @@ public class ObjectManager {
 		}
 		// for (Armour a : armour) {
 		// a.update();
+		//This code is unnecessary because we are never trying to change the armour 
 		// }
 		// for(Armour2 as: armour2) {
 		// as.update();
+		//This is the same as the for statement above. 
 		// }
 	}
 
@@ -186,11 +194,12 @@ public class ObjectManager {
 
 	// void addArmour(Armour arm) {
 	// armour.add(arm);
+	//This piece of code is unnecessary because we are not trying to add armour. Once the armour is hit, then the armour breaks and disappears, not regenerates. 
 	// }
 
 	// public void addArmour2(Armour2 arm) {
 	// armour2.add(arm);
-	// This piece of code is unnecessary because we are not trying to add 
+	// This is the same as the method above. 
 	// }
 
 }
