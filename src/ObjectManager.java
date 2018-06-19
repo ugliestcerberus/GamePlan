@@ -175,7 +175,11 @@ public class ObjectManager {
 			enemyTimer = System.currentTimeMillis();
 		}
 	}
-
+	
+	public void drawEndState(){
+	JOptionPane.showMessageDialog(null, "Game Over, your score was" + score);	
+	}
+	
 	void addMonster(Monster m) {
 		monster.add(m);
 	}
@@ -186,7 +190,7 @@ public class ObjectManager {
 
 	// public void addArmour2(Armour2 arm) {
 	// armour2.add(arm);
-	//
+	// This piece of code is unnecessary because we are not trying to add 
 	// }
 
 }
