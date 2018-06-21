@@ -98,35 +98,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			human.addBullet(new Bullet(0, 800, 50, 50, true));
 		}
-		if (e.getKeyCode() == KeyEvent.VK_1) {
+		if (e.getKeyCode() == KeyEvent.VK_V) {
 			speak("Help me out, teammate!");
 		}
-		if (e.getKeyCode() == KeyEvent.VK_2) {
-			speak("stay out of the area, Teammate!");
-		}
-		if (e.getKeyCode() == KeyEvent.VK_3) {
-			speak("I'm coming to help, Teammate");
-		}
-		if (e.getKeyCode() == KeyEvent.VK_4) {
-			speak("Follow me,Teammate");
-		}
-		if (e.getKeyCode() == KeyEvent.VK_5) {
-			speak("Oh yeah teammate, we got this");
-		}
-		if (e.getKeyCode() == KeyEvent.VK_6) {
-			speak("Help me out, Human!");
-		}
-		if (e.getKeyCode() == KeyEvent.VK_7) {
-			speak("stay out of the area, Human!");
-		}
-		if (e.getKeyCode() == KeyEvent.VK_8) {
-			speak("I'm coming to help, Human");
-		}
-		if (e.getKeyCode() == KeyEvent.VK_9) {
-			speak("Follow me, Human");
-		}
 		if (e.getKeyCode() == KeyEvent.VK_0) {
-			speak("Oh yeah human, we got this");
+			speak("Help me out, Human!");
 		}
 		repaint();
 	}
@@ -154,7 +130,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 	}
 	public void keyReleased(KeyEvent e) {
-		
 		
 	}
 }
