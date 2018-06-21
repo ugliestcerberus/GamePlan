@@ -101,6 +101,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_V) {
 			speak("Help me out, teammate!");
 		}
+		if(e.getKeyCode() == KeyEvent.VK_B) {
+			speak("Oh yeah teammate, we got this!); 
+		}
+		if(e.getKeyCode() == KeyEvent. VK_.) {
+			speak("Oh yeah human, we got this!);
+		}	      
 		if (e.getKeyCode() == KeyEvent.VK_0) {
 			speak("Help me out, Human!");
 		}
