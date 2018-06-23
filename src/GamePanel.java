@@ -102,14 +102,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			speak("Help me out, teammate!");
 		}
 		if(e.getKeyCode() == KeyEvent.VK_B) {
-			speak("Oh yeah teammate, we got this!); 
+			speak("Oh yeah teammate, we got this!"); 
 		}
-		if(e.getKeyCode() == KeyEvent. VK_.) {
-			speak("Oh yeah human, we got this!);
-		}	      
-		if (e.getKeyCode() == KeyEvent.VK_0) {
+		if (e.getKeyCode() == KeyEvent.VK_NUMPAD3) {
 			speak("Help me out, Human!");
 		}
+		if(e.getKeyCode() == KeyEvent.VK_NUMPAD2) {
+			speak("Oh yeah human, we got this!");
+		}	      
+		
 		repaint();
 	}
 
@@ -124,8 +125,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	public void paintComponent(Graphics g) {
 		manager.draw(g);
-		g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
-		g.drawImage(weaponImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
+		//g.drawImage(glockImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
+		//g.drawImage(weaponImg, weapon.x, weapon.y, weapon.width, weapon.height, null);
 	}
 
 	static void speak(String words) {

@@ -46,8 +46,8 @@ public class SecondScreen implements ActionListener{
 		jtextfield5.setText("4. This is a mutiplayer game");
 		jtextfield6.setText("5. 1st player would use A to move left, w to move ahead, d to move right, and s to move down.For shooting the enemies, press space");
 		jtextfield7.setText("6. 2nd player would use the arrow buttons to move.For shooting the coopers, press enter");
-		jtextfield8.setText("7. To communicate, 1st player would use");
-		jtextfield9.setText("8. To communicate, 2nd player would use");
+		jtextfield8.setText("7. To communicate, 1st player would use v and b");
+		jtextfield9.setText("8. To communicate, 2nd player would use 2 and 3 on numpad");
 		button.setText("Let's go!");
 		button.addActionListener(this);
 	}

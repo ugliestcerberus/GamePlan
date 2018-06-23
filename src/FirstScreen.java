@@ -33,7 +33,7 @@ public class FirstScreen extends JComponent implements ActionListener, Runnable 
 
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		g2.drawString("Welcome to my game, Survival Scorer. Have Fun!", 200, 200);
+		g2.drawString("Welcome to my game, Communication Scorer. Have Fun!", 200, 200);
 		g2.setColor(Color.BLUE);
 		g2.setColor(Color.red);
 	}
